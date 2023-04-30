@@ -1,0 +1,151 @@
+/* Navbar styles */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  padding: 1rem;
+}
+
+.navbar-brand {
+  /* color: #333; */
+  font-weight: bold;
+  font-size: 1.5rem;
+
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+gap: 1rem;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 1rem;
+}
+
+.nav-link {
+  color: #333;
+  font-weight: bold;
+  border-radius: 50px;
+  background-color: #333;
+  color: #fff;
+}
+.nav-link:hover {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+  border-radius: 50px;
+}
+
+@media (max-width: 568px) {
+  
+  
+   .navbar-nav {
+    width: 80%;
+margin-top: 5px;
+    text-align: center;
+  }
+  
+  .nav-item {
+    margin-bottom: 1rem;
+    flex-direction: column;
+  }
+  .nav-link{
+    width: 80%;
+    margin-top: 5px;
+        text-align: center;
+  }
+}
+
+
+/* MODAL CODE */
+
+
+.modal-container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modal-close-btn {
+  /* position: fixed; */
+ 
+  cursor: pointer;
+  font-size: 1.9rem;
+}
+
+.modal-close-btn:hover {
+  color: red;
+}
+
+.modal-body {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.form-control {
+  border: none;
+  /* border-radius: 20px; */
+  padding: 0.75rem 1rem;
+  background-color: whitesmoke;
+
+  /* background-color: #333; */
+  /* color: #333; */
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  box-shadow: none;
+}
+.btn2 {
+  display: block;
+  width: 20%;
+  background: linear-gradient(to right, #FFB800, #F4D03F, #4CAF50);
+color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.btn2:hover{
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+  /* border-radius: 50px; */
+}
+
+
+
+
+
+/* CLOSE BUTTON */
