@@ -29,39 +29,57 @@ const Navbar = () => {
   }
   const formHandler=(e)=>{
     e.preventDefault();
-    axios.post(`${baseUrl}/user/question`, input)
-    .then((res) => {
-      if (res.data.createResponse) {
-     
-        toast.success('Question Added successfully', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // onClose: () => {
-          //   navigate('/');
-          // }
-        });
-        setIsModalOpen(false)
-        console.log(res.data.createResponse,"res.data.createResponse");
-      } else {
-    
-
-        console.log("errorq");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    if(input.questionAdd===''||input.answerAdd===''){
+      toast.error('Please fill all field', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // onClose: () => {
+        //   navigate('/');
+        // }
+      });
+    }
+    else{
+      axios.post(`${baseUrl}/user/question`, input)
+      .then((res) => {
+        if (res.data.createResponse) {
+       
+          toast.success('Question Added successfully', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // onClose: () => {
+            //   navigate('/');
+            // }
+          });
+          setIsModalOpen(false)
+          console.log(res.data.createResponse,"res.data.createResponse");
+        } else {
+      
   
-    setInput({
-      questionAdd:'',
-      answerAdd:''
-    })
+          console.log("errorq");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    
+      setInput({
+        questionAdd:'',
+        answerAdd:''
+      })
+    }
+    
   }
   const handleAddQuestionClick = () => {
     console.log("hello");
@@ -149,11 +167,31 @@ const Navbar = () => {
                         onChange={inputHandler}
                       />
                     </div>
-                  
+                   
+        
+            
+
+          
+<div className="m-4">
+<label>
+        <input type="checkbox"/>
+        Confirm
+      </label>
+      <label>
+        <input type="checkbox" />
+        Confirm
+      </label>
+      <label>
+        <input type="checkbox"  />
+        Confirm
+      </label>
+</div>
+               
                     <div
                       className=""
                       style={{ display: "flex", justifyContent: "row",gap:"10px" }}
                     >
+          
                       <button className="btn2" type="submit">Submit</button>
                       <button className="btn2" onClick={closeModal}>
                         Cancel
