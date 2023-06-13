@@ -3,14 +3,14 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import './SignIn.css'
 
 const baseUrl = 'http://localhost:5000';
 const SignIn=()=>{
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [input,setInput]=useState({
     email:'',
     password:''
@@ -19,6 +19,9 @@ const SignIn=()=>{
     const {name,value}=e.target
     setInput({...input,[name]:value})
   }
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const formHandle=(e)=>{
     e.preventDefault();
     axios.post(`${baseUrl}/user/login`, input)
@@ -43,7 +46,7 @@ const SignIn=()=>{
       } else {
     
 
-        toast.error(res.data.error, {
+        toast.error("credential not match", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -76,10 +79,23 @@ const SignIn=()=>{
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" name="email" value={input.email} onChange={inputHandle}/>
    
   </div>
-  <div class="mt-3">
-
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"  name="password" value={input.password} onChange={inputHandle}/>
+  <div className="mt-3">
+  <div className="password-input-wrapper">
+    <input
+      type={showPassword ? 'text' : 'password'}
+      className="form-control password-input"
+      id="exampleInputPassword1"
+      placeholder="Enter Password"
+      name="password"
+      value={input.password}
+      onChange={inputHandle}
+    />
+    <button className="btn_eye" type="button" onClick={togglePasswordVisibility}>
+      {showPassword ? <FaEyeSlash /> : <FaEye />}
+    </button>
   </div>
+</div>
+
  
   <button type="submit" class="btn1" >Sign In</button>
   <div className=" mt-3" style={{ display: 'flex', justifyContent: 'center' }}>

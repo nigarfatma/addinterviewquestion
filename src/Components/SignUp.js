@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import './SignUp.css'
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const baseUrl = 'http://localhost:5000';
 
